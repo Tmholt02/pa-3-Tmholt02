@@ -15,7 +15,7 @@ openr:
     mov $2, %rax
     syscall # Call 2
 
-    # Restore callee-saved registers
+    # Restore stack back to what it was, just in case.
     mov %rbp, %rsp
     pop %rbp
 
