@@ -5,14 +5,14 @@
 extern "C" int openr(const char *pathname);
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    if ( argc != 2 ) {
         std::cerr << "Usage: " << argv[0] << " <pathname>\n";
         return 1;
     }
 
     // Open the user provided file
     int user_fd = openr(argv[1]);
-    if (user_fd < 0) {
+    if ( user_fd < 0 ) {
         perror("openr failed");
         return 1;
     }
