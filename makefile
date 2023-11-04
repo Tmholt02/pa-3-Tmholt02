@@ -15,4 +15,4 @@ q4: q4.cpp
 	g++ $(GPP_FLAGS) q4.cpp -o q4
 
 clean:
-	rm -f q1.o openr.o q1 q2
+	rm -f q1 q2 q3 q4 q5
