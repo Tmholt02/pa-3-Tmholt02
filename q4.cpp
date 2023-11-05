@@ -25,12 +25,17 @@ int main(int argc, char *argv[]) {
         case S_IFIFO:
             mode = "Pipe";
             break;
+        default:
+            mode = "Other";
     }
 
+    string permission = (data.st_mode & S_IRUSR) != 0 ? "Read ":"";
+    if ((data.st_mode & S_IWUSR) != 0) permission += "Write ";
+    if ((data.st_mode & S_IXUSR) != 0) permission += "Execute ";
     
     cout << "Inode #: " << data.st_ino << endl;
     cout << "Mode: " << mode << endl;
-    cout << "Owner: " << data.st_uid << endl;
+    cout << "Permission: " << permission << endl;
 
     return 0;
 }
