@@ -1,4 +1,3 @@
-OUTPUT := q1
 GPP_FLAGS := -std=c++11 -Wall
 
 .PHONY: all clean q1 q2 q4 q5
