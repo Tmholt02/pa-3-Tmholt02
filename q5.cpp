@@ -8,11 +8,13 @@ int main() {
     int fd;
     int count = 0;
 
-    // Loop until the open call fails with EMFILE error
-    while (1) {
-        fd = open("/dev/null", O_RDONLY); // Open a file that always exists
+    while (true) {
+
+        // This file always exists I think.
+        fd = open("/dev/null", O_RDONLY);
         if (fd == -1) {
-            // Check if the error is EMFILE
+
+            // This error is for reaching the limit.
             if (errno == EMFILE) {
                 printf("Maximum number of open files reached: %d\n", count);
                 exit(EXIT_SUCCESS);
