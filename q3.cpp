@@ -37,7 +37,7 @@ int main() {
     if (cpid != 0) {
         
         // Close unused read end
-        close(pipefd[0]);          
+        close(pipefd[0]);         
 
         // Unlink the file
         if (unlink(filename) == -1) {
@@ -47,8 +47,8 @@ int main() {
 
         // Execute ls to show the file is gone
         printf("ls after deletion:\n");
-        char *args[] = {(char*)"ls", (char*)"-l", NULL};
-        execvp("ls", args);
+        char *args2[] = {(char*)"ls", NULL};
+        execvp("ls", args2);
 
         // Send synchronization message to child
         write(pipefd[1], "x", 1);
